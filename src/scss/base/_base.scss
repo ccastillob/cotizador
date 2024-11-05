@@ -1,0 +1,39 @@
+*, *::after, *::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+:root {
+
+	--main-font: #{map-get($type-font, main-font )};
+
+  --fz-xlarge: #{map-get($general-font-size, xlarge )};
+  --fz-large: #{map-get($general-font-size, large )};
+  --fz-normal: #{map-get($general-font-size, normal )};
+  --fz-small: #{map-get($general-font-size, small )};
+  --fz-smaller: #{map-get($general-font-size, smaller )};
+
+	--primary-color: #{map-get($landing-color, primary )};
+	--secondary-color: #{map-get($landing-color, secondary )};
+	--secondary-alt-color: #{map-get($landing-color, secondary-alt )};
+
+	--blue-600: #{map-get($accent-color, blue-600 )};
+	--blue-900: #{map-get($accent-color, blue-900 )};
+	--gray-100: #{map-get($accent-color, gray-100 )};
+	--gray-200: #{map-get($accent-color, gray-200 )};
+	--gray-400: #{map-get($accent-color, gray-400 )};
+
+  --rounded-sm: 6px;
+  --rounded-md: 8px;
+
+}
+
+html {
+	font-family: var(--main-font);
+}
+
+body {
+	font-size: inherit;
+	font-family: inherit;
+}
