@@ -1,4 +1,65 @@
-.landing {
-  background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+.main-landing {
+  padding-top: 24px;
   min-height: 100vh;
+  margin: 0 auto;
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    max-width: 1400px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 48px;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    margin: 0 auto;
+  }
+}
+
+.landing {
+
+  &-content {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      width: max-content;
+      justify-content: center;
+      margin: 0 auto 24px auto;
+      gap: 8px;
+
+    &__title {
+      font-weight: var(--fw-medium);
+      color: white;
+      font-size: var(--fz-large);
+
+      @media screen and (min-width: 1024px) {
+        font-size: var(--fz-xlarge);
+      }
+    }
+
+    &__description {
+      font-weight: var(--fw-regular);
+      color: white;
+      font-size: var(--fz-small);
+
+      @media screen and (min-width: 1024px) {
+        font-size: var(--fz-large);
+      }
+    }
+  }
+
+  &-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    height: 325px;
+    max-height: 325px;
+    margin: 0 auto;
+    width: calc(100% - 32px);
+    max-width: 560px;
+    border-radius: var(--rounded-md);
+
+  }
 }

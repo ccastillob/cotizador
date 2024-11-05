@@ -31,6 +31,9 @@
   --rounded-sm: 6px;
   --rounded-md: 8px;
 
+  --fw-medium: 500;
+  --fw-regular: 400;
+
 }
 
 html {
@@ -40,4 +43,6 @@ html {
 body {
 	font-size: inherit;
 	font-family: inherit;
+  background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+  min-height: 100vh;
 }

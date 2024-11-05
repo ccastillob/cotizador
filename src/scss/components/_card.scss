@@ -1,0 +1,84 @@
+.card-container {
+  &__tab {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  &__form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 40px auto;
+    gap: 32px;
+  }
+}
+
+.card-content {
+  &__tab {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 4px;
+  }
+
+  &__form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+.tab {
+  &__text,
+  &__number {
+    color: var(--gray-400);
+    text-align: center;
+    font-size: var(--fz-smaller);
+  }
+
+  &__text {
+    font-weight: var(--fw-regular);
+  }
+
+  &__number {
+    font-weight: var(--fw-medium);
+  }
+}
+
+.tab__active {
+
+  & > .tab__text,
+  & > .tab__number {
+    color: var(--blue-900);
+    text-align: center;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    z-index: 10;
+    background-color: var(--blue-900);
+  }
+}
+
+.border__tab {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--gray-200);
+}

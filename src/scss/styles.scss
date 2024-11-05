@@ -1,11 +1,10 @@
 
-$responsive-lg: 1024px;
-
 @use "config";
 
 @use "base/base";
 
 @use "modules/button";
+@use "modules/input";
 
 @use "components/card";
 @use "components/landing";
