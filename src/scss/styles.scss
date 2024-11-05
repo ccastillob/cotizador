@@ -1,11 +1,11 @@
 
 $responsive-lg: 1024px;
 
-@import "config";
+@use "config";
 
-@import "base/base";
+@use "base/base";
 
-@import "modules/button";
+@use "modules/button";
 
-@import "components/card";
-@import "components/landing";
+@use "components/card";
+@use "components/landing";
