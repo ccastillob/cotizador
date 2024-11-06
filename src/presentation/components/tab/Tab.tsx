@@ -1,9 +1,4 @@
-interface TabProps {
-  label: string;
-  price: number | null;
-  isActive: boolean;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
+import { TabProps } from "../../../infrastructure/interfaces";
 
 export const Tab = ({ label, price, isActive, onClick }: TabProps) => (
   <button

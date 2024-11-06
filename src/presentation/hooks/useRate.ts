@@ -1,4 +1,4 @@
-import { setUpdatePurchasePrice, setUpdateSalePrice } from "../store/slices/rate";
+import { setUpdatePurchasePrice, setUpdateSalePrice } from "../../store/slices/rate";
 import { useAppDispatch, useAppSelector } from "./store";
 
 export const useRate = () => {

@@ -1,11 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { RateInitialState } from '../../../infrastructure/interfaces'
 
-interface InitialState {
-  purchasePrice: number | null;
-  salePrice: number | null;
-}
-
-const initialState: InitialState = {
+const initialState: RateInitialState = {
   purchasePrice: null,
   salePrice: null,
 }

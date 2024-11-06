@@ -1,9 +1,9 @@
-import { ContainerTab } from "./ContainerTab";
-import { ContainerForm } from "./ContainerForm";
-import { doc, onSnapshot } from "firebase/firestore";
-import { dbFirebase } from "../firebase/config";
 import { useEffect } from "react";
-import { useRate } from "../hooks";
+import { doc, onSnapshot } from "firebase/firestore";
+import { dbFirebase } from "../../../config/firebase";
+import { useRate } from "../../hooks";
+import { ContainerTab } from "../tab";
+import { ContainerForm } from "../form";
 
 export const LandingCard = () => {
   const { updatePurchasePrice, updateSalePrice } = useRate();

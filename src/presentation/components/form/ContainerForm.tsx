@@ -1,6 +1,6 @@
-import { useTransaction } from "../hooks";
-import { ButtonTransaction } from "./ButtonTransaction";
-import { TransactionField } from "./TransactionField";
+import { useTransaction } from "../../hooks";
+import { ButtonTransaction } from "../ui/button";
+import { TransactionField } from "../ui/input";
 
 export const ContainerForm = () => {
   const { toggleTransaction } = useTransaction();

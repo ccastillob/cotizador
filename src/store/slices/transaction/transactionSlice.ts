@@ -1,12 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { TransactionInitialState } from '../../../infrastructure/interfaces'
 
-interface InitialState {
-  transactionType: string;
-  formInput: number;
-  formOutput: number | string;
-}
-
-const initialState: InitialState = {
+const initialState: TransactionInitialState = {
   transactionType: 'PURCHASE',
   formInput: 3925,
   formOutput: "",

@@ -1,5 +1,5 @@
-import { LandingContent } from "./components/LandingContent";
-import { LandingCard } from "./components/LandingCard";
+import { LandingContent } from "../../components";
+import { LandingCard } from "../../components/card";
 
 export const Landing = () => {
   return (

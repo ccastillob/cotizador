@@ -1,10 +1,6 @@
-import { getConvertedValue } from "../helpers/getConvertedValue";
-import { getCurrencyText } from "../helpers/getCurrencyText";
-import { useTransaction, useRate } from "../hooks";
-
-interface TransactionFieldProps {
-  isInput: boolean;
-}
+import { getConvertedValue, getCurrencyText } from "../../../../config/helpers";
+import { useTransaction, useRate } from "../../../hooks";
+import { TransactionFieldProps } from "../../../../infrastructure/interfaces";
 
 export const TransactionField = ({ isInput }: TransactionFieldProps) => {
   const {

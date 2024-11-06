@@ -1,6 +1,4 @@
-interface ButtonTransactionProps {
-  toggleTransaction: () => void;
-}
+import { ButtonTransactionProps } from "../../../../infrastructure/interfaces";
 
 export const ButtonTransaction = ({
   toggleTransaction,

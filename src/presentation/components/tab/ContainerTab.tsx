@@ -1,8 +1,11 @@
 import { useEffect } from "react";
-import { useRate, useTransaction } from "../hooks";
+import { useRate, useTransaction } from "../../hooks";
+import {
+  convertCurrency,
+  convertToDollars,
+  convertToSoles,
+} from "../../../config/helpers";
 import { Tab } from "./Tab";
-import { convertCurrency } from "../helpers/convertCurrency";
-import { convertToDollars, convertToSoles } from "../helpers/convertOperations";
 
 export const ContainerTab = () => {
   const {
