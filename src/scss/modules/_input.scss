@@ -2,7 +2,7 @@
 
   &__form {
     display: flex;
-    justify-content: space-between;
+    gap: 8px;
     border: 1px solid var(--primary-color);
     border-radius: var(--rounded-sm);
     height: 45px;
@@ -12,10 +12,11 @@
 .input-content {
   &__left {
     display: flex;
+    flex: 0 auto;
     justify-content: center;
     align-items: center;
-    width: 25%;
-    padding: 8px 12px;
+    width: 96px;
+    user-select: none;
     background-color: var(--gray-100);
     border-top-left-radius: var(--rounded-sm);
     border-bottom-left-radius: var(--rounded-sm);
@@ -26,25 +27,36 @@
 
   &__right {
     display: flex;
+    flex: 1 1;
+    gap: 2px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    padding: 8px 12px;
-    width: 45%;
+    width: 100%;
+    padding-right: 16px;
   }
 }
 
 .input {
 
   &__text {
+    color: var(--gray-400);
+    user-select: none;
     font-size: var(--fz-small);
     font-weight: var(--fw-regular);
   }
   &__number {
+    display: inline-flex;
     font-size: var(--fz-normal);
+    width: 100%;
+    color: var(--blue-600);
     font-weight: var(--fw-regular);
     border: none;
     text-align: end;
+
+    @media screen and (min-width: 1024px) {
+      width: min-content;
+    }
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
