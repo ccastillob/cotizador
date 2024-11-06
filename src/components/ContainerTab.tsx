@@ -1,11 +1,8 @@
 import { useEffect } from "react";
-import {
-  convertDollarsToSoles,
-  convertSolesToDollars,
-} from "../helpers/calculate";
-import { dbFirebase } from "../firebase/config";
-import { doc } from "firebase/firestore";
 import { useRate, useTransaction } from "../hooks";
+import { Tab } from "./Tab";
+import { convertCurrency } from "../helpers/convertCurrency";
+import { convertToDollars, convertToSoles } from "../helpers/convertOperations";
 
 export const ContainerTab = () => {
   const {
@@ -15,26 +12,17 @@ export const ContainerTab = () => {
     updateFormOutput,
     updateTransactionType,
   } = useTransaction();
-  const { purchasePrice, salePrice, updatePurchasePrice, updateSalePrice } =
-    useRate();
-
-  const docRef = doc(dbFirebase, "rates", "awaOMswZ8JGxjmHCpVZ4");
-
-  useEffect(() => {
-    // Al parecer me faltan permisos para que me devuelva una respuesta, por ello decidí colocarle unos valores por defecto,
-    // de esta manera el app sigue funcionando hasta que la API pueda funcionar
-    updatePurchasePrice(3.924);
-    updateSalePrice(3.945);
-  }, [docRef]);
+  const { purchasePrice, salePrice } = useRate();
 
   useEffect(() => {
     if (!purchasePrice || !salePrice) return;
     if (formOutput) return;
 
-    const newFormOutput = convertDollarsToSoles({
+    const newFormOutput = convertCurrency({
       typeForm: "formInput",
       valueForm: formInput,
-      purchasePrice,
+      rate: purchasePrice,
+      convertOperation: convertToSoles,
     });
 
     updateFormOutput(newFormOutput);
@@ -43,46 +31,39 @@ export const ContainerTab = () => {
   useEffect(() => {
     if (!purchasePrice || !salePrice) return;
 
-    if (transactionType === "PURCHASE") {
-      const formOutput = convertDollarsToSoles({
-        typeForm: "formInput",
-        valueForm: formInput,
-        purchasePrice,
-      });
+    const isPurchaseTransaction = transactionType === "PURCHASE";
 
-      updateFormOutput(formOutput);
-      return;
-    }
+    const newFormOutput = isPurchaseTransaction
+      ? convertCurrency({
+          typeForm: "formInput",
+          valueForm: formInput,
+          rate: purchasePrice,
+          convertOperation: convertToSoles,
+        })
+      : convertCurrency({
+          typeForm: "formInput",
+          valueForm: formInput,
+          rate: salePrice,
+          convertOperation: convertToDollars,
+        });
 
-    const formOutput = convertSolesToDollars({
-      typeForm: "formInput",
-      valueForm: formInput,
-      salePrice,
-    });
-
-    updateFormOutput(formOutput);
+    updateFormOutput(newFormOutput);
   }, [transactionType]);
 
   return (
     <article className="card-container__tab">
-      <div
+      <Tab
+        isActive={transactionType === "PURCHASE"}
+        label="Dólar compra"
         onClick={() => updateTransactionType("PURCHASE")}
-        className={`card-content__tab ${
-          transactionType === "PURCHASE" ? "tab__active" : ""
-        }`}
-      >
-        <h4 className="tab__text">Dólar compra</h4>
-        <h5 className="tab__number">{purchasePrice ?? "--"}</h5>
-      </div>
-      <div
+        price={purchasePrice}
+      />
+      <Tab
+        isActive={transactionType === "SELL"}
+        label="Dólar venta"
         onClick={() => updateTransactionType("SELL")}
-        className={`card-content__tab ${
-          transactionType === "SELL" ? "tab__active" : ""
-        }`}
-      >
-        <h4 className="tab__text">Dólar venta</h4>
-        <h5 className="tab__number">{salePrice ?? "--"}</h5>
-      </div>
+        price={salePrice}
+      />
       <div className="border__tab"></div>
     </article>
   );
