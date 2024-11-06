@@ -3,13 +3,13 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 interface InitialState {
   transactionType: string;
   formInput: number;
-  formOutput: number | null;
+  formOutput: number | string;
 }
 
 const initialState: InitialState = {
   transactionType: 'PURCHASE',
   formInput: 3925,
-  formOutput: null,
+  formOutput: "",
 }
 
 export const transactionSlice = createSlice({
